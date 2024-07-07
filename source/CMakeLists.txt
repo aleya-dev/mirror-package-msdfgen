@@ -1,5 +1,9 @@
 
 cmake_minimum_required(VERSION 3.15)
+
+# Version is specified in vcpkg.json
+project(msdfgen VERSION "1.12" LANGUAGES CXX)
+
 include(cmake/version.cmake)
 
 option(MSDFGEN_CORE_ONLY "Only build the core library with no dependencies" OFF)
@@ -63,9 +67,6 @@ if(MSDFGEN_USE_VCPKG)
         endif()
     endif()
 endif()
-
-# Version is specified in vcpkg.json
-project(msdfgen VERSION ${MSDFGEN_VERSION} LANGUAGES CXX)
 
 if(MSDFGEN_DYNAMIC_RUNTIME)
     set(MSDFGEN_MSVC_RUNTIME "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
